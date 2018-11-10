@@ -33,17 +33,19 @@ var car = carsList[Math.floor(Math.random() * carsList.length)];
 var showLives = document.getElementById("myLives");
 var lettersGuessed = document.getElementById("wrongLetters");
 
+var answers = [];
+for (var i = 0; i < car.length; i++) {
+  answers.push(" _ ");
+  console.log(car);
+}
+
 document.getElementById("myLives").innerHTML = guessesLeft;
-document.getElementById("theWord").innerHTML = car;
+document.getElementById("theWord").innerHTML = answers.join(" ");
 document.getElementById("myWins").innerHTML = wins;
 
 // document.getElementById("wrongLetters").innerHTML = userGuess;
 
-//This generates empty spaces based on the word length of the random "car" chosen
-var answers = [];
-for (var i = 0; i < car.length; i++) {
-  answers[i] = "_";
-}
+// This generates empty spaces based on the word length of the random "car" chosen
 
 document.onkeyup = function(event) {
   var userGuess = event.key;
@@ -52,17 +54,19 @@ document.onkeyup = function(event) {
 
   var blankSpace = car.indexOf(userGuess);
 
+  
+
   if (blankSpace != -1) {
     guessesLeft -= 1;
     lettersGuessed.innerHTML = userGuess;
   } else if (blankSpace === car[i]) {
     guessesLeft -= 1;
-    //reveal letter chose
+    //reveal letter chosen
   }
   // else if () {
 
   // }
-};
+}
 
 //     //compare splitUp to car.
 
