@@ -58,7 +58,7 @@ document.onkeyup = function(event) {
       found = true;
     }
   }
-  console.log(answers);
+  console.log(car);
 
 if (guessesLeft >= 1) {
     if (found != true) {
