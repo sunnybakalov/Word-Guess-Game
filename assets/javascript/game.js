@@ -1,0 +1,82 @@
+//the array that holds the possible words
+var carsList = [
+  "acura",
+  "bmw",
+  "chevrolet",
+  "dodge",
+  "ford",
+  "honda",
+  "infinity",
+  "lada",
+  "mazda",
+  "nissan",
+  "mercedes",
+  "porsche",
+  "ferrari",
+  "bentley",
+  "hummer",
+  "volvo",
+  "audi",
+  "mitsubishi",
+  "toyota",
+  "maserati"
+];
+//we start off with 0 wins
+var wins = 0;
+//this is what keeps track of the wrong letters chosen so that they can be displayed on the DOM
+var wrongLetter = [];
+//this is how many guesses the user has left. with each key pressed, this # will decrease by 1 until reaching 0.
+var guessesLeft = 10;
+//This helps top pick a random word from the carsList array
+var car = carsList[Math.floor(Math.random() * carsList.length)];
+
+var showLives = document.getElementById("myLives");
+var lettersGuessed = document.getElementById("wrongLetters");
+
+document.getElementById("myLives").innerHTML = guessesLeft;
+document.getElementById("theWord").innerHTML = car;
+document.getElementById("myWins").innerHTML = wins;
+
+// document.getElementById("wrongLetters").innerHTML = userGuess;
+
+//This generates empty spaces based on the word length of the random "car" chosen
+var answers = [];
+for (var i = 0; i < car.length; i++) {
+  answers[i] = "_";
+}
+
+document.onkeyup = function(event) {
+  var userGuess = event.key;
+
+  var lettersLeft = car.length;
+
+  var blankSpace = car.indexOf(userGuess);
+
+  if (blankSpace != -1) {
+    guessesLeft -= 1;
+    lettersGuessed.innerHTML = userGuess;
+  } else if (blankSpace === car[i]) {
+    guessesLeft -= 1;
+    //reveal letter chose
+  }
+  // else if () {
+
+  // }
+};
+
+//     //compare splitUp to car.
+
+//     if (userGuess === splitUp) {
+//         //display the letter that the user chose && decrease guesses left by 1
+//     } else if (userGuess !== splitUp) {
+//         //display the letter that the user chose in the "wrongLetters" div & decrease guesses left by 1
+//     } else if (userGuess === correct) {
+//         //wins go up by 1 && alert("Great job! Keep going!"")
+//     } else if (guessesLeft === 0) {
+//         alert("Game Over! Please try again!" && end game)
+// }
+
+//the function that lets us start the game.
+// function startGame (){
+//     carsList[Math.floor(Math.random() * carsList.length)];
+// }

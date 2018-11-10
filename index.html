@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>MY GAME</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-text">
+          <h2>Hangman</h2>
+        </span>
+      </nav>
+    
+      <div class="container">
+        <div class="row" id="mainRow">
+            <div class="col" id="mainCol">
+                <div class="row-12">
+                    <h3>Press any key to get started!</h3>
+                </div>
+                <div class="row-12">
+                    <h2 id="theWord"></h2>
+                </div>
+                    <div class="row-6" id="staticText">
+                        WINS: <span id="myWins"></span>
+                    </div>
+                    <div class="row-6">
+                        # of guesses remaining: <span id="myLives"></span>
+                    </div>
+                    <div class="row-12" id="staticText">
+                        Letters already guessed:
+                    </div>
+                    <div class="row-12" id="wrongLetters">
+                        
+                    </div>
+
+            </div>
+        </div>
+
+      </div>
+      <footer class="page-footer" id="footer">
+        <div class="footer-copyright text-center py-3"> Copyright: © 2018
+          </div>
+
+      </footer>
+    
+    <script src="assets/javascript/game.js">
+    </script>
+</body>
+</html>

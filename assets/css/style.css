@@ -1,0 +1,50 @@
+.navbar {
+    font-family: 'Bangers', cursive;
+}
+
+body {
+    background: #4ea;
+    height: 150vh;
+}
+
+.container {
+    font-family: 'Bangers', cursive;
+    margin: auto;
+    width: 95%;
+    height: 50%;
+}
+
+#mainRow {
+    height: 90%;
+}
+
+#mainCol {
+    height: 90%;
+}
+
+h3, 
+h2,
+#staticText
+ {
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+}
+
+#theWord {
+    font-weight: bold;
+    height: 20%;
+}
+
+.page-footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-family: 'Bangers', cursive;
+}
+
+#wrongLetters {
+    height: 90%;
+    width: 60%;
+    font-size: 32px;
+}
