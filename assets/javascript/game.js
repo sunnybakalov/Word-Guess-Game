@@ -43,29 +43,28 @@ document.getElementById("myLives").innerHTML = guessesLeft;
 document.getElementById("theWord").innerHTML = answers.join(" ");
 document.getElementById("myWins").innerHTML = wins;
 
-// document.getElementById("wrongLetters").innerHTML = userGuess;
-
 // This generates empty spaces based on the word length of the random "car" chosen
 
 document.onkeyup = function(event) {
   var userGuess = event.key;
 
-  var lettersLeft = car.length;
+  wrongLetter.push(userGuess);
+
+  document.getElementById("wrongLetters").innerHTML = wrongLetter.join(" ");
+
+//   var lettersLeft = car.length;
 
   var blankSpace = car.indexOf(userGuess);
 
-  
 
-  if (blankSpace != -1) {
+  if (blankSpace === -1) {
+    document.getElementById("myLives").innerHTML = guessesLeft;
     guessesLeft -= 1;
-    lettersGuessed.innerHTML = userGuess;
-  } else if (blankSpace === car[i]) {
-    guessesLeft -= 1;
+    // lettersGuessed.innerHTML = userGuess;
+  } else {
     //reveal letter chosen
   }
-  // else if () {
 
-  // }
 }
 
 //     //compare splitUp to car.
