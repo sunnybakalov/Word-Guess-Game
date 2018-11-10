@@ -21,6 +21,8 @@ var carsList = [
   "toyota",
   "maserati"
 ];
+
+var alphabet = ["abcdefghijklmnopqrstuvwxyz"];
 //we start off with 0 wins
 var wins = 0;
 //this is what keeps track of the wrong letters chosen so that they can be displayed on the DOM
@@ -29,6 +31,7 @@ var wrongLetter = [];
 var guessesLeft = 10;
 //This helps top pick a random word from the carsList array
 var car = carsList[Math.floor(Math.random() * carsList.length)];
+var splitCar = car.split("");
 
 var showLives = document.getElementById("myLives");
 var lettersGuessed = document.getElementById("wrongLetters");
@@ -36,7 +39,7 @@ var lettersGuessed = document.getElementById("wrongLetters");
 var answers = [];
 for (var i = 0; i < car.length; i++) {
   answers.push(" _ ");
-  console.log(car);
+  console.log(splitCar);
 }
 
 document.getElementById("myLives").innerHTML = guessesLeft;
@@ -47,25 +50,26 @@ document.getElementById("myWins").innerHTML = wins;
 
 document.onkeyup = function(event) {
   var userGuess = event.key;
+  var found = false;
 
-  wrongLetter.push(userGuess);
+  for (i = 0; i < splitCar.length; i++) {
+    if (userGuess === splitCar[i]) {
+      answers[i] = userGuess;
+      found = true;
+    }
+  }
+  console.log(answers);
 
-  document.getElementById("wrongLetters").innerHTML = wrongLetter.join(" ");
-
-//   var lettersLeft = car.length;
-
-  var blankSpace = car.indexOf(userGuess);
-
-
-  if (blankSpace === -1) {
-    document.getElementById("myLives").innerHTML = guessesLeft;
+  if (found != true) {
+    wrongLetter.push(userGuess);
     guessesLeft -= 1;
-    // lettersGuessed.innerHTML = userGuess;
+    document.getElementById("myLives").innerHTML = guessesLeft;
+    document.getElementById("wrongLetters").innerHTML = wrongLetter.join(" ");
   } else {
-    //reveal letter chosen
+    document.getElementById("theWord").innerHTML = answers.join(" ");
   }
 
-}
+};
 
 //     //compare splitUp to car.
 
