@@ -60,28 +60,20 @@ document.onkeyup = function(event) {
   }
   console.log(answers);
 
-  if (found != true) {
-    wrongLetter.push(userGuess);
-    guessesLeft -= 1;
-    document.getElementById("myLives").innerHTML = guessesLeft;
-    document.getElementById("wrongLetters").innerHTML = wrongLetter.join(" ");
-  } else {
-    document.getElementById("theWord").innerHTML = answers.join(" ");
-  }
-
+if (guessesLeft >= 1) {
+    if (found != true) {
+        wrongLetter.push(userGuess);
+        guessesLeft -= 1;
+        document.getElementById("myLives").innerHTML = guessesLeft;
+        document.getElementById("wrongLetters").innerHTML = wrongLetter.join(" ");
+    } else {
+        document.getElementById("theWord").innerHTML = answers.join(" ");
+    }
+} else {
+    alert("Game over. Try again! Please refresh this page.");
+}
 };
 
-//     //compare splitUp to car.
-
-//     if (userGuess === splitUp) {
-//         //display the letter that the user chose && decrease guesses left by 1
-//     } else if (userGuess !== splitUp) {
-//         //display the letter that the user chose in the "wrongLetters" div & decrease guesses left by 1
-//     } else if (userGuess === correct) {
-//         //wins go up by 1 && alert("Great job! Keep going!"")
-//     } else if (guessesLeft === 0) {
-//         alert("Game Over! Please try again!" && end game)
-// }
 
 //the function that lets us start the game.
 // function startGame (){
