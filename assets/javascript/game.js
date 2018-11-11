@@ -1,4 +1,4 @@
-//the array that holds the possible words
+//the array that holds the different car manufacturers
 var carsList = [
   "acura",
   "bmw",
@@ -24,7 +24,7 @@ var carsList = [
 
 //we start off with 0 wins
 var wins = 0;
-
+//and 0 losses
 var losses = 0;
 //this is what keeps track of the wrong letters chosen so that they can be displayed on the DOM
 var wrongLetter = [];
@@ -46,10 +46,9 @@ for (var i = 0; i < car.length; i++) {
 document.getElementById("myLives").innerHTML = guessesLeft;
 document.getElementById("theWord").innerHTML = answers.join(" ");
 document.getElementById("myWins").innerHTML = wins;
-document.getElementById("myLosses").innerHTML = losses
+document.getElementById("myLosses").innerHTML = losses;
 
-// This generates empty spaces based on the word length of the random "car" chosen
-
+//the function that captures the keys pressed by the user
 document.onkeyup = function(event) {
   var userGuess = event.key;
   var found = false;
@@ -63,41 +62,43 @@ document.onkeyup = function(event) {
   console.log(car);
 
   if (guessesLeft >= 1) {
-      if (found != true) {
-          wrongLetter.push(userGuess);
-          guessesLeft = guessesLeft - 1;
-          document.getElementById("myLives").innerHTML = guessesLeft;
-          document.getElementById("wrongLetters").innerHTML = wrongLetter.join(" ");
+    if (found != true) {
+      wrongLetter.push(userGuess);
+      guessesLeft = guessesLeft - 1;
+      document.getElementById("myLives").innerHTML = guessesLeft;
+      document.getElementById("wrongLetters").innerHTML = wrongLetter.join(" ");
+    } else {
+      //compare the letters in the answers array === car string
+      if (answers.join("") === car) {
+        document.getElementById("theWord").innerHTML = answers.join(" ");
+        wins = wins + 1;
+        document.getElementById("myWins").innerHTML = wins;
+        resetGame();
       } else {
-          //compare the letters in the answers array === car string
-          if (answers.join("") === car){ 
-            document.getElementById("theWord").innerHTML = answers.join(" ");
-            wins = wins + 1;
-            document.getElementById("myWins").innerHTML = wins;
-            resetGame()
-          } else{
-            document.getElementById("theWord").innerHTML = answers.join(" ");
-          }
+        document.getElementById("theWord").innerHTML = answers.join(" ");
       }
+    }
   } else {
-      losses = losses + 1;
-      document.getElementById("myLosses").innerHTML = losses
-      alert("You lose. Try again!");
-      resetGame()
+    losses = losses + 1;
+    document.getElementById("myLosses").innerHTML = losses;
+    alert("You lose. Try again!");
+    resetGame();
   }
 };
 
-function resetGame () {
+
+//game reset function that allows the game to keep going
+function resetGame() {
   wrongLetter = [];
   guessesLeft = 10;
   answers = [];
   car = carsList[Math.floor(Math.random() * carsList.length)];
   splitCar = car.split("");
-  for (var i = 0; i < car.length; i++) { //i = i + 1
+  for (var i = 0; i < car.length; i++) {
     answers.push(" _ ");
     console.log(splitCar);
   }
-  
+
   document.getElementById("myLives").innerHTML = guessesLeft;
   document.getElementById("theWord").innerHTML = answers.join(" ");
   document.getElementById("myWins").innerHTML = wins;
