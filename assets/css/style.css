@@ -1,9 +1,12 @@
 .navbar {
     font-family: 'Bangers', cursive;
+    background-color: #6f8191;
+    color: #f2630d;
+    text-align: center;
 }
 
 body {
-    background: #4ea;
+    background: #cbd2d9;
     height: 150vh;
 }
 
@@ -31,10 +34,18 @@ h2,
     margin-top: 40px;
 }
 
+#staticText {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 #theWord {
     font-weight: bold;
     font-size: 50px;
     height: 20%;
+    color: #f2630d;
 }
 
 .page-footer {
@@ -42,10 +53,13 @@ h2,
     width: 100%;
     bottom: 0;
     font-family: 'Bangers', cursive;
+    background-color: #3d4249;
+    opacity: 0.6;
+    color: #f2630d;
 }
 
 #wrongLetters {
-    height: 75%;
+    height: 20%;
     width: 60%;
     font-size: 40px;
     margin: auto;
